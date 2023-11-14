@@ -1,0 +1,609 @@
+\documentclass{article}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Huge{Physics 038} Notes}
+\author{\huge{Jeremiah Vuong}\\Los Angeles Valley College\\vuongjn5900@student.laccd.edu
+}
+\date{2023 Fall}
+
+\begin{document}
+\maketitle
+\newpage
+
+\pagebreak
+
+\setcounter{section}{20}
+\section{Electric Force and Field}
+\subsection{Coulomb's Law}
+\dfn{Subatomic Particles}{
+Opposite charges attract, like charges repel.\\
+The smallest unit of charge is the electron.\\\
+Where an electron $e = 1.6 \times 10^{-19} C$\\
+- Protons have a charge of $+e$\\
+- Electrons have a charge of $-e$\\
+- Neutrons have no charge (0)\\
+An electron has a mass of $9.11 \times 10^{-31} kg$
+} \noindent
+\nt{
+\textbf{Insulators} are materials that do not allow electrons to move freely.\\
+\textbf{Conductors} are materials that allow electrons to move freely.\\
+\textbf{Polarization} is the seperation of charges within an object.
+}
+\dfn{Coulomb's Law}{
+  The force between two charges is proportional to the product of the charges and inversely proportional to the square of the distance between them.
+\begin{multicols}{2}
+  In vector form:
+  $$ \hat{F_E} = k\frac{q_1q_2}{r^2}\hat{r} $$
+
+  In scalar form:
+  $$ |F_E| = k\frac{|q_1q_2|}{r^2} $$
+  \end{multicols}
+  \leavevmode\newline
+Where $q_1$ exerts and $q_2$ feels.\\
+$k = 9.0 \times 10^9 Nm^2/C^2$ is the constant of proportionality.
+\\\\We derive $k$ from the following equation:
+\[ k = \frac{1}{4\pi\epsilon_0}\]
+Where $\epsilon_0$ is the permittivity of free space, $\epsilon_0 = 8.85 \times 10^{-12} C^2/Nm^2$ 
+}
+\qs{}{Calculate the components of the net force on Q in the folowing situation.}
+\subsection{Electric Fields}
+We say that all of spaace contains an \textbf{Electric/Gravitational Field} within which charges/masses get to play.
+\\Where each force has it's own exclusive field taht its player (charges/mass) get to interact in.\\
+\dfn{Electric Field}{
+  The electric field at a point in space is the force per unit charge that would be exerted on a positive test charge placed at that point.
+Simply, an electric magnitude and direction for every point in space.
+\\\\Where in general ($q$ is a positive test charge):
+\[\hat{E} = \frac{\hat{F_E}}{q} \quad \text{measured in} \quad V/C \]
+In the specific case of point charges:\\
+Such that if we have two charges Q and q $\implies F_{Qq}$. $Q$ exerts and $q$ feels.
+\[\hat{E} = k\dfrac{Q}{r^2}\hat{r}\]
+Postive charges have electric fields that point \textbf{away} from them.\\
+Negative charges have electric fields that point \textbf{towards} them.
+\double
+The E-field inside a conductor is zero.\\
+The E-field inside a nonconducting uniform charge density that is spherically symmetric is zero.
+}
+\subsection{Continuous Charge Distributions}
+\dfn{Continuous Charge Distributions}{
+  We can treat any arbitrary massive number of charges as a continuous charge distribution with an appropriate density.
+\\\\This density can be a linear (line) charge density $(\lambda)$, surface charge density $(\sigma)$, or a volume charge density $(\rho)$.
+\\\\We can then calculate a small bit of the electric field $(d \vec{E})$ due to a small bit of charge $(dq)$.
+\\Where $dq$ is the density of the charge times the infinitesimal bit of length, area, or volume of the charge.
+$$  d \vec{E}=\frac{k}{r^2} \hat{r} dq= \begin{cases}\dfrac{k}{r^2} \hat{r} \lambda d L & \text { Lines } \\ \dfrac{k}{r^2} \hat{r} \sigma d A & \text { Surfaces } \\ \dfrac{k}{r^2} \hat{r} \rho d V & \text { Volumes }\end{cases} $$
+Such that upon integrating over the entire charge distribution, we get the total electric field:
+$$ \vec{E}=\begin{cases}\int \dfrac{k}{r^2} \hat{r} \lambda d L & \text { Lines } \\ \int \dfrac{k}{r^2} \hat{r} \sigma d A & \text { Surfaces } \\ \int \dfrac{k}{r^2} \hat{r} \rho d V & \text { Volumes }\end{cases} $$
+}
+\newpage
+\qs{Determining the E-field for a uniform general shape}{Determine the E-field for anywhere along the axis of symmetry for a uniform circular ring of charge.}
+\sol Lets first draw a diagram of the situation.
+\imgg{21.2}{0.5}
+We have a ring of charge with radius $R$, where we have an infinitesimal bit of charge $dq$ with an infinitesimal bit of length $dl$.
+\\ We can use pythagorean theorem to determine the distance from $dq$ to the point $P$. Where $r = \sqrt{R^2 + y^2}$.
+\\ Since the charge is around a ring, we can say that $\vec{E}_x = 0$ due to symmetry. Thus all we care about is the $y$ component of the electric field, where $F_y = |F_E|\cos\theta = |F_E|\frac{y}{r}$.
+\\ Out linear charge density is just the total charge divided by the total length of the ring, where $\lambda = \dfrac{Q_{\text{tot}}}{2\pi R}$.
+\double Such that our infinitesimal electric field is:
+$$ dE_y = k \dfrac{dq}{r^2} cos\theta$$
+Our infinitesimal charge is:
+$$ dq = \lambda dl $$
+Solving for our E-field (where we add up all the infinitesimal charges along the ring):
+$$ E_y = \int_0^{2\pi R} \dfrac{k \lambda}{r^2} cos\theta dl $$
+Where upon substituting and simplifying, we get:
+$$ \boxed{E_y = k Q_{\text{tot}} \cdot \dfrac{y}{(R^2 +y^2)^{\frac{3}{2}}}} $$
+\section{Gauss's Law}
+\subsection{Flux and Area Vectors}
+\dfn{Flux ($\Phi$)}{
+Flux is how much "stuff" flows through an area.
+\\Where max flow is the input perpendicular to the "stuff," and min flow is the input parallel to the "stuff."
+\\\\The electric flux for simple (planer) surfaces:
+$$ \Phi_{E} = \vec{E} \cdot \vec{A} = EAcos\theta $$
+The electric flux for arbitrary surfaces:
+$$ \Phi_{E} = \oint \vec{E} \cdot d\vec{A} $$
+}
+\dfn{Gauss's Law}{
+  $$ \Phi_{E} = \oint \vec{E} \cdot d\vec{A} = \dfrac{Q_\text{enclosed}}{\epsilon_0} $$
+  Where the ideal conditions are:
+\nlist{
+  \item If we can pick a surface such that $\vec{E}$ is constant and perpendicular to $d\vec{A}$.
+  \item Pick a geometry of a known area.
+  \item If the $\vec{E}$ has the same value everywhere on the surface.
+}
+}
+\nt{When determining the $\vec{E}_{\text{inside}}$ and $\vec{E}_{\text{outside}}$ using Gauss's Law, setting the surface of the area equal to the $Q_{\text{enclosed}}$ will result them being equal to each other. }
+\qs{}{
+  A solid sphere of total charge $Q$ and a radius $R$ has a non-uniform charge density of $Ar^2$ where $A$ is a cnstant.
+  \\ A) Determine $A$ in terms of $Q$ and $R$.
+  \\ B) Determine the E-field for anywhere inside this sphere.
+}
+\sol
+\\ A) We know that the total charge $Q$ is equal to $\rho V$. Since the charge density is non-uniform/charge density depends on the radius, we must integrate over the radius.
+More specifically, we must add up infetisimal thick shells of charge from $0$ to $R$.
+$$
+Q \rho V = \int_{0}^{R} \rho dV = \int_{0}^{R} Ar^2 (4\pi r^2 dr)
+$$
+$$\implies \boxed{A = \dfrac{5Q}{4\pi R^5}} $$
+B) We can use Gauss's Law to determine the E-field for anywhere inside this sphere.
+\\We can use a spherical Gaussian surface inside the solid sphere with radius $r_{\text{in}}$.
+$$
+\oint \vec{E_{\text{in}}} \cdot d\vec{A} = \dfrac{Q_{\text{enc}}}{\epsilon_0}
+$$
+Since the E-field is parallel to the area vector (where the dot product is 1), we can simplify the equation to:
+\begin{align*}
+  E_{\text{in}} dA = \dfrac{Q_{\text{enc}}}{\epsilon_0}
+  \\ E_{\text{in}} (4\pi r_{\text{in}}^2) = \dfrac{Q_{\text{enc}}}{\epsilon_0}
+\end{align*}
+Like part a of this problem, we must integrate over the radius to determine the total charge enclosed.
+\begin{align*}
+  Q_{\text{enc}} = \int_{0}^{r_{\text{in}}} \rho dV &= \int_{0}^{r_{\text{in}}} Ar^2 (4\pi r^2 dr)
+  \\ Q_{\text{enc}} &= A4\pi \frac{r_{\text{in}}^5}{5}
+\end{align*}
+Where upon simplifying and substituting, we get:
+$$\boxed{E_{\text{\text{in}}} = kQ(\dfrac{r_{\text{in}}^3}{R^5})} $$
+\newpage
+\section{Electric Potential}
+\dfn{Electric Potential Energy}{
+  $$ U_E = k\frac{q_1q_2}{r} $$
+  $$ \vec{F_E} = -\nab U_E = - (\frac{\partial U_E}{\partial x}, \frac{\partial U_E}{\partial y}, \frac{\partial U_E}{\partial z})$$
+  $$ \Delta U_E = -W$$
+  Remember that:
+  $$ K_i + U_i + W_{\text{ext}} = K_f + U_f $$
+}
+\dfn{Voltage (Electric Potential)}{
+  The scalar field describing the eletric potential energy per unit charge.
+  $$ \Delta V = \frac{\Delta U_E}{q} \quad \text{measured in Volts $V$}$$
+  Where on a point charge (where $q$ exerts):
+  $$ V_{\text{PC}} = \frac{kq}{r} $$
+  $$ \Delta V = -\int \vec{E} \cdot d\vec{r} = -Edcos\theta $$
+  $$ \Delta V = - \vec{E} \cdot \Delta \vec{r} = ||\vec{E}|| ||\Delta \vec{r}|| cos\theta $$
+  What matters is not the amount of voltage, but the difference in voltage.
+  \\Voltage is negative the area under an $\vec{E}$ vs ${\vec{r}}$ graph.
+  \\Voltage difference is path independent. i.e. you only care about the start and end points.
+}
+\nt{
+  Joules $J$ = kg $\cdot$ $\text{m}^2/\text{s}^2$ \quad Volts $V$ = J/C\\
+  \begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    Active Charge & Passive Charge\\
+    \hline
+    + Charges create & Charges Want to go\\
+    + Voltage & From high to low voltage\\
+    \\
+    - Charges create & Charges want to go\\
+    - Voltage & from low to high voltage\\
+    \hline
+  \end{tabular}
+\end{center}
+Simply, positive charges want to go from high to low voltage, and negative charges want to go from low to high voltage.
+}
+\newpage
+\qs{External work to bring a charge from infinity to a point}{
+  Determine the work required to bring $q = 3.0 \cdot 10^{-6}$ C charge from infinity to 0.5 m away from $Q = 20 \cdot 10^{-6}$ C charge.
+}
+\sol Where there is no kinetic energy, we can use the following equation (we only care about the magnitude):
+\begin{align*}
+  |-W| &= |\Delta U_E|
+  \\ W &= U_f - U_i
+  \\ &= \frac{(3)(20)(10 \cdot 10^{-12})}{0.5} - \frac{(3)(20)(10 \cdot 10^{-12})}{\infty}
+  \\ &= \frac{(3)(20)(10 \cdot 10^{-12})}{0.5} - 0
+  \\ &= \boxed{1.08 \text{ J}}
+\end{align*}
+\qs{Analyzing Voltage and Electric Potential Energy}{
+  Consider the diagram below where two parallel plates have potentials $+V$ and $-V$ respectively. If an electron is placed near the negative plate, what can we say about the change in its electric potential $(V)$ and the electric potential energy $(U_E)$?
+  \imgg{ex23.1}{0.4}
+}
+\sol Using the formula: $\Delta V = V_f - V_i$
+\\ We understand that the electron will move from the negative plate to the positive plate.
+\\ Thus, $\Delta V = +V - (-V) = 2V \implies \boxed{\Delta V > 0} $
+\\ Using the formula: $\Delta V = \frac{\Delta U_E}{q}$ we derive $\Delta U_E = \Delta V q$
+\\ When examining the signs of $\Delta V$ and $q$, $\Delta U_E = (+)(-) \implies \boxed{\Delta U_E < 0}$
+\qs{}{
+  Determine the voltage for any point along the axis of symmetry of a solid uniformly charged disk of radius $R$.
+}
+\dfn{Equipotential Lines}{
+  Equipotential lines provide a quantitative way of viewing the electric potential in two dimensions.
+  \\Every point on a given line is at the same potential. Represented as contour maps.
+  The electric field at a point can be calculated:
+  $$ \vec{E} = -\nab V = - (\frac{\partial V}{\partial x}, \frac{\partial V}{\partial y}, \frac{\partial V}{\partial z}) = -\frac{\Delta V}{\Delta x}$$ 
+  Rules for drawing equipotential lines:
+  \nlist{
+    \item Electric field lines are perpendicular to the equipotential lines, and point in the direction of decreasing potential (downhill).
+    \item A conductor forms an equipotential surface.
+    \item When lines are more dense, the electric field is strong.
+  }
+}
+
+\section{Capacitance, Dielectrics, and Electrical Energy Storage}
+\underline{Capacitor}
+\nlist{
+\item Have a capacity to store charge and energy
+\item Construciton
+\subitem a) Made up of 2 conductors called plates
+\subitem b) Must have a gap
+\subitem c) Gap must not contain a conductor (Typically we have a air/vacuum gap, ideally a dielectric)
+\subitem d) Plates must have equal and opposite charges.
+}
+\dfn{The Capactior/Capacitance}{
+  The units for capacitance is Farads (F).
+  $$ C = \frac{Q}{\Delta V} \implies Q = C \Delta V$$
+  Where $A$ is the area of the plates, $D$ is the distance between the plates, and $\kappa$ is the dielectric constant.
+  $$ C = \kappa \epsilon_0 (\frac{A}{D}) $$
+}
+\ex{Capacitance is charge efficiency}{
+  Lets say we have 2 capacitors. Capacitor A with 10 F and capactior B with 2 F.
+  \\ If we charge both capacitors with 1 V. Capacitor A will store 10 C and capacitor B will store 2 C.
+  \\ If we charge both capacitors with 2 V. Capacitor A will store 20 C and capacitor B will store 4 C.
+  \\ Therefore, capacitance is charge efficiency, its how much charge you can hold per volt.
+}
+\nt{
+Capacitance is a function of material and geometry not $V$ and $Q$.
+Such that, we consider the area of the plates and the gap between the plates.
+\double As area grows, charges on a plate can spread out more, reducing their mutual repulsion, increasing capacitance. Thus, $C \propto A$.
+\double As we decrease the gap between the plates the force gets larger. Such that, a smaller gap results in a larger force, more capacity to store charges. Therefore, $C \propto \frac{1}{d}$.
+}
+\nt{
+  \textbf{Steps to obtain capacitance}
+  \nlist{
+    \item Assume plates have a charge Q (of course one is pos, neg but we only care about the magnitude).
+    \item Computer the $\Delta V$ between the plates, from low to high voltage to obtain $\Delta V$.
+    \subitem A) Compute the electric field (via Gauss's Law), such that $\Delta V = -\int_{-}^{+} \vec{E} \cdot d\vec{r}$
+    \subitem B) Use the surface charge densities on the plates to compute the voltage of each
+    \subitem plate and then compute the difference. $V = k \int \frac{dq}{r}$
+    \item Finally, $C = \frac{Q}{\Delta V}$
+  }
+}
+
+\thm{Parallel Plate Capacitors}{
+  $$ C = \epsilon_0 \frac{A}{D}$$
+}
+\thm{Cylindrical Capacitors}{
+  $$ C = \dfrac{2\pi \epsilon_0 l}{ln(R_2/R_1)}$$
+}
+\thm{Spherical Capacitors}{
+  $$ C = 4\pi \epsilon_0 \frac{R_1R_2}{R_2-R_1}$$
+}
+\thm{Parallel Wire Capacitance}{
+  $$ C = \dfrac{\pi \epsilon_0 l}{ln(d/R)}$$
+}
+\dfn{Dielectrics}{
+  Dielectrics are materials that don't allow current to flow. They are more often called insulators because they are the exact opposite of conductors.
+  \nlist{
+  \item Are materials with that require more voltage than air to pass a current
+  \item Can be placed in-between capacitor plates to increase efficiency.
+  \item Have a dielectric constant $(\kappa)$ that depends on the material.
+  }
+  Everywhere you have an $\epsilon_0$ you can replace it with $\kappa \epsilon_0$.
+  Such that, $\kappa = \frac{\epsilon_\kappa}{\epsilon_0}$
+}
+\noindent Dielectic constant/relative permittivity $(\kappa)$ The higher the permittivity the harder it is for form fields in that space.
+Such that capacitance is increased with $\kappa$. Where $C \propto \kappa$
+\thm{Arranging Capacitors in Parallel}{
+  Objects in parallel have the same voltage, but split the charge (current).
+  $$C_{\text {P}}=\sum_n C_n$$
+}
+\thm{Arranging Capacitors in Series}{
+  Objects in series have the same charge (current), but split the voltage.
+  $$C_{\text {S}}=\left(\sum_n 1 / C_n\right)^{-1}$$
+}
+
+\dfn{Energy Storage}{
+  $$ W = q \Delta V$$
+  $$ dW = q dV $$
+  $$ dV = \frac{1}{c} dq $$
+  $$ dW = q(\frac{1}{c} dq) $$
+}
+
+\nt{
+  Random formulas
+  $$ E = \frac{V}{D}$$
+  $$ \frac{Q}{V} = \epsilon_0 \frac{A}{D}$$
+  $$ Q = \epsilon_0 \frac{AV}{D} = \epsilon_0 A E$$
+  \begin{align*}
+    U &= \frac{Q^2}{2c} \\
+    &= \frac{1}{2} C (\Delta V)^2 \\
+    &= \frac{1}{2} Q \Delta V
+  \end{align*}
+  }
+\newpage
+\section{Electric Currents and Resistance }
+\dfn{Current $(I)$}{
+  The rate of flow of charge, measured in Amps $(A)$ or $C/s$.
+  $$ I = \frac{dq}{dt} \quad I_{\text{avg}} = \frac{\Delta Q}{\Delta t}$$
+  Where $q$ is the charge, and $t$ is the time.\\
+  More current will flow in the path of least resistance.
+}
+\dfn{Resistance $(R)$}{
+  The resistance to the flow of charge, neasured in Ohms $(\Omega)$ or $V/A$. \\
+  Where it depends on the material resistivity $\rho \: (\Omega \cdot m)$, length $(l)$, and cross-sectional area $(A)$.
+  $$ R = \rho \frac{l}{A}$$
+}
+\ex{Simple $A \rightarrow B$ with resistor}{
+  \imgg{ex25.1}{0.3 }
+  The charges go from high to low voltage, such that $V_A > V_B$. Resistors cost you voltage. \\
+  As all the charges must go through the $R$, the current must be the same, $I_A = I_B$.
+}
+\dfn{Ohm's Law}{
+  Describes the relationship between a given potential difference and the current
+  it generates as dictated by the resistance; subsquently that $\Delta V \propto I$.
+  $$ \Delta V = IR$$
+  Where $\Delta V$ is the voltage drop across the resistor, $I$ is the current flowing through the resistor, and $R$ is the resistance to the flow of charges.
+}
+\dfn{Electric Power $(P)$}{
+  Electric power is the rate at which electrical energy is transferred by an electric circuit.
+  Rigourously, it is the rate of work done per unit time, $\frac{dW}{dt} = \frac{d}{dt} (q \Delta V) = I \Delta V$.
+  $$ P = IV = I^2R = \frac{V^2}{R} $$
+}
+\qs{Mixed Configuration Resistors}{
+  Find the voltage and current of the system and $R_1 \to R_5$
+}
+\noindent The currents we have been dicussing so far are called direct currents (DC), where the flow is unidirectional. \\
+Lets take a look at another version:
+\dfn{Alternating Currents (AC)}{
+  Alternating currents go back and forth in a periodic manner, typically many times per second. \\
+  They are generated using a waveform, typically sinusoidal.
+  $$ V(t) = V_0 \sin (\omega t)$$
+  Where $V_0$ is the max voltage, $f$ is the frequency of osciallation, and $\omega = 2 \pi f$ is the angular frequency.
+  $$ I (t) = I_0 \sin (\omega t) $$
+  Where $I_0$ is the max current.
+  $$ P_{\text{avg}} = \frac{1}{2}P_0 = I_{\text{RMS}}^2 R$$
+}
+\dfn{Root-Mean-Square (RMS)}{
+  Because it would be nice to treat AC and DC circuits \textit{effectively} the same,
+  we tend to think of the values in terms of their Root-Mean-Square (RMS) values.
+  \double Such that the average a $T$ of a sin/cos graph is 0, we are going to square the given values, take the average, and then take the square root.
+  $$ V_{\text{RMS}} = \frac{V_0}{\sqrt{2}} = \frac{P_{\text{avg}}}{I_{\text{RMS}}}$$
+  $$ I_{\text{RMS}} = \frac{I_0}{\sqrt{2}}$$
+  $$ P_{\text{avg}} = I_{\text{rms}}^2 R$$
+}
+\nt{
+  1 hp = 746 W 0.746 kW
+}
+\section{DC Circuits}
+\dfn{EMF \& Terminal Voltage}{
+  The EMF causes current to flow from low to high potential. It does work on those charges to increase their potential energy. \\
+  - Terminal voltage is the voltage you get at the terminals of your source. It is usually less than the EMF of a battery/source due to the internal resistance of such items
+  $$ \Delta V_{\text {terminal }} = \mathcal{E}-I r $$
+  $$ \mathcal{E} = I(R+r) = V+Ir$$
+}
+\thm{Aligning Resistors in Series/Parallel}{
+  \begin{align*}
+    R_{\text {series }} & =\sum_n R_n \\ R_{\text {parallel }} & =\left(\sum_n 1 / R_n\right)^{-1}
+  \end{align*}
+}
+\dfn{Kirchhoff's Law}{
+  Kirchhoff's first rule-the junction rule. The sum of all currents entering a junction must equal the sum of all currents leaving the junction (charge conservation):
+$$ \sum I_{\text {in }}=\sum I_{\text {out }} $$
+Kirchhoff's second rule-the loop rule. The algebraic sum of changes in potential around any closed circuit path (loop) must be zero (energy conservation):
+$$ \sum V=0 $$
+Such that, $(+) \to (-)$ are $-V$ and $(-) \to (+)$ are $+V$. Where $V$ can be for a capacitor `or resistor.
+}
+\dfn{RC Circuits}{
+  An RC circuit is a circuit containing resistance and capacitance.
+  \double
+  Charging of a capacitor:
+  $$Q(t)= Q_0 \left(1-e^{-t / \tau}\right) \quad V(t) = V_0 \left(1-e^{-t / \tau}\right) \quad I(t)=I_0 (e^{-t / \tau}) $$
+  When $\tau = t$, we define 63\% 0 to max charge $(Q_0 = CV)$.
+  \double
+  Discharging of a capacitor:
+  $$Q(t)= Q_0 (e^{-t / \tau}) \quad V(t)= V_0 (e^{-t / \tau}) \quad I(t)=-\frac{Q}{\tau} e^{-t / \tau}$$
+  When $\tau = t$, we define 37\% from max to some $Q$.
+  \double
+  Time Constant:
+  $$\tau=R C$$
+}
+\ex{Charging a Capacitor}{
+  \imgg{ex26.1}{0.4}
+}
+\newpage
+\ex{Discharging a Capacitor}{
+  \imgg{ex26.2}{0.4}
+}
+\section{Magnetism}
+Magnetic charges = magnetic potentials\\
+north and south, they always come in pairs.\\
+Always form closed loops\\
+Only exerts forces on moving charges\\
+If a charge moves with the magnetic field its force is 0 \\
+\dfn{Magnetic Forces}{
+  $$F_{B, q}=q \vec{v} \times \vec{B} = q\vec{v} \vec{B} \sin \theta$$
+  $$F_{B, I}=I \vec{L} \times \vec{B} = ILB \sin \theta$$
+  $L$ being the length of wire in the field. Only works for a uniform $I$ and $B$ and a straight wire.
+  $$ r = \dfrac{mv}{qB} \quad T = \dfrac{2\pi m}{qB}$$
+}
+\dfn{Velocity Selector}{
+  In order for the charged particle to pass through the space WITHOUT being deflected (either upwards or downwards), the upwards force must be equal to the downwards force (cancel each other out).
+  $$
+  \begin{aligned}
+  q E & =B q v \\
+  v & =\frac{E}{B}
+  \end{aligned}
+  $$
+  \imgg{dfn27.1}{0.5}
+  }
+\dfn{Current Loops}{
+  $$\begin{array}{rr}\vec{\mu}=N I \vec{A} & \text { Magnetic Dipole Moment } \\ \vec{\tau}=\vec{\mu} \times \vec{B} & \text { Torque } \\ U=-\vec{\mu} \cdot \vec{B} & \text { Potential Energy }\end{array}$$
+}
+\section{Sources of Magnetic Fields}
+Spin is a fundamental source of magnetisms-$\vec{B}$ fields.\\
+Ferromagnets
+\nlist{
+  \item Becomes attractivley along an external $\vec{B}$ field
+  \item When the external $\vec{B}$ field is removed, the ferromagnet retains some of its magnetism
+}
+Paramagnets
+\nlist{
+  \item Also attractivley magnetised, like ferromagnets
+  \item Don't retain magnetism.
+}
+Diamagnets
+\nlist{
+  \item Magnetize repulsivley (opposite) to external $\vec{B}$.
+}
+"Permanent" magnets, when effected by heat makes the spin of the electrons random, thus losing its magnetism. The curie temp is when it loses its magnetism. With iron at 1043 K.
+\nt{
+  $$\mu_0 = 4 \pi \cdot 10^{-7} \frac{T\cdot m}{A}$$
+  Where $\mu_0$ is the permeability of free space.
+}
+\newpage
+\thm{Straight Parallel Wires $(r << l)$}{
+  $$
+  \begin{aligned}
+  & B=\frac{\mu_0 I}{ 2 \pi r} \\
+  & F=(\frac{\mu_0 L}{2 \pi r}) I_1 I_2 \\
+  \end{aligned}
+  $$
+Parallel (same dir) $I$ attract, anti-parallel (diff dir) $I$ repel.
+\imgg{rhr}{0.8134}
+}
+\myproof
+$F_{21} = I_1 l B_{21} \sin (90^o) = I_1 l (\frac{\mu_0 I_2}{2\pi r_{21}})$ \\
+$F_{12} = I_2 l B_{12} \sin (90^o) = I_2 l (\frac{\mu_0 I_1}{2\pi r_{12}})$ \\
+Therefore $F_{21} = F_{12}$. (We also know this from Newton's 3rd Law )
+\dfn{Ampere's Law}{
+  $$ \oint \vec{B} \cdot d \vec{l}=\mu_o I_{\text{enc}}$$
+  Best used when:\\
+  - Current is constant.\\
+  - No magnetic materials are present.\\
+  - There is symmetry or a simple enough situation. \\
+\textbf{Current Density} $J = \frac{I}{A}$
+}
+\newpage
+\qs{Ampere's Law - Stright Wire}{
+  What is the $\vec{B}$ of an infinite straight wire as a function of $r$?
+}
+\sol
+\imgg{qs28.1}{0.32}
+$$
+\begin{gathered}
+\oint \vec{B} \cdot \overrightarrow{d l}=\mu_0 I_{\text {enclosed }} \\
+B(2 \pi R)=\mu_o I \\
+B=\frac{\mu_o I}{2 \pi R}
+\end{gathered}
+$$
+\qs{Ampere's Law - Solenoid}{
+  What is the $\vec{B}$ of an infinite solenoid? Assume that the solenoid is long enough that the field is uniform inside.
+}
+\sol
+\imgg{qs28.2}{0.37}
+In the diagram above, the amperian loop is a rectangle where the line inside is parallel with the magnetic field.
+The two lines outside are perpendicular to the magnetic field, so there dot product is 0. We are assuming the field outside is 0 (as it is infinitly long).
+In the diagram above, the solenoid peirces the amperian loop 5 times, however, we can generalize this to $N$ times.
+$$
+\begin{gathered}
+\oint \vec{B} \cdot \overrightarrow{d l}=\mu_o I_{\text {enclosed }} \\
+B L=\mu_o(N I) \\
+B=\mu_o \frac{N}{L} I \\
+B=\mu_o n I
+\end{gathered}
+$$
+Where we have $N$ loops and $n$ loops per unit length.
+\qs{Ampere's Law - Toroid}{
+  What is the $\vec{B}$ of a toroid with $N$ total windings? A toriod is a solenoid that has been bent into a donut.
+}
+\sol
+\imgg{qs28.3}{0.34}
+$$
+\begin{aligned}
+\oint \vec{B} \cdot \overrightarrow{d l} & =\mu_o I_{\text {enclosed }} \\
+B(2 \pi r) & =\mu_o(N I) \\
+B & =\frac{\mu_o N I}{2 \pi r}
+\end{aligned}
+$$
+\qs{Ampere's Law - Solid Wire}{
+  Given a solid wire carrying a uniform current $I_0$. What is the $\vec{B}$ when $r < R$ and $r > R$? 
+}
+\sol
+\imgg{qs28.4}{0.42}
+We can define a current density $J = \frac{I}{A} = \frac{I}{\pi R^2}$. Such that $I = JA$.
+$$
+\begin{gathered}
+\oint \vec{B} \cdot \overrightarrow{d l}=\mu_o I_{\text {enclosed }} \\
+B(2 \pi r)=\mu_o \frac{I_o}{\pi R^2}\left(\pi r^2\right) \quad \text { if } \mathrm{r}<\mathrm{R} \\
+B = \frac{\mu_o I_o r}{2 \pi R^2} \\
+B(2 \pi r)=\mu_o I_o \quad \text { if } \mathrm{r}>\mathrm{R} \\
+B = \frac{\mu_o I_o}{2 \pi r}
+\end{gathered}
+$$
+\newpage
+\qs{Ampere's Law - Non-uniform Solid Wire}{
+  Given a solid wire carrying non-uniform current density $J(r)$. Find the $\vec{B}$.
+}
+\sol
+$$
+\begin{gathered}
+\oint \vec{B} \cdot \overrightarrow{d l}=\mu_o I_{\text {enclosed }} \\
+B(2 \pi r)=\mu_o \int_0^r J(r) 2 \pi r d r \quad \text { if } \mathrm{r}<\mathrm{R} \\
+B(2 \pi r)=\mu_o \int_0^R J(r) 2 \pi r d r \quad \text { if } \mathrm{r}>\mathrm{R}
+\end{gathered}
+$$
+\dfn{Biot-Savart's Law}{
+  $$\vec{B}=\frac{\mu_o I}{4 \pi} \int \frac{\overrightarrow{d l} \times \hat{r}}{r^2}$$
+  Where $\vec{dl}$ is an infetisimal length of current.\\
+  Unlike Ampere's Law:\\
+  - Tells us the magnetic field at a specific point in space. \\
+  - Magnetic fieldis specific to one current (purely due of $I d \vec{l}$)
+}
+\qs{}{
+  What is the $\vec{B}$ at the center of a loop of current?
+}
+\imgg{qs28.6}{0.4}
+$$
+\begin{aligned}
+\vec{B} & =\frac{\mu_0}{4 \pi} \int \frac{I \overrightarrow{d l} \times \hat{r}}{r^2} \\
+|B| & =\frac{\mu_0 I}{4 \pi} \int \frac{d l \sin \theta_{\overrightarrow{d l} \hat{r}}}{r^2} \\
+|B| & =\frac{\mu_0 I}{4 \pi R^2} \int d l \sin 90^o \\
+|B| & =\frac{\mu_0 I}{4 \pi R^2} \int_0^{2\pi R} d l \\
+|B| & =\frac{\mu_0 I(2 \pi R)}{4 \pi R^2}=\frac{\mu_0 I}{2 R}
+\end{aligned}
+$$
+\qs{}{
+  What is the $\vec{B}$ along the central axis of a loop of current?
+}
+\sol
+\imgg{qs28.7}{0.34}
+$$
+\begin{aligned}
+\vec{B} & =\frac{\mu_0}{4 \pi} \int \frac{I \overrightarrow{d l} \times \hat{r}}{r^2} \\
+|B| & =\frac{\mu_o I}{4 \pi} \int \frac{d l \sin \theta \overrightarrow{d l} \hat{r}}{r^2}
+\end{aligned}
+$$
+We know that the $\vec{B}$ at the point would be spherically symmetric, such that the $y$ components would cancel out. Thus, we only need to consider the $x$ components.
+$$ r^2=R^2+h^2 \quad \sin \alpha=\frac{R}{r}=\frac{R}{\sqrt{R^2+h^2}} $$
+$$
+\begin{aligned}
+& \left|B_x\right|=\frac{\mu_0 I}{4 \pi} \int \frac{d l \sin \theta}{R^2+h^2 \hat{r}} \cos \beta \\
+& \left|B_x\right|=\frac{\mu_0 I}{4 \pi\left(R^2+h^2\right)} \int d l \sin \alpha \\
+& \left|B_x\right|=\frac{\mu_0 I R}{4 \pi\left(R^2+h^2\right)^{\frac{3}{2}}} \int_0^{2 \pi R} d l
+\end{aligned}
+$$
+$$
+\left|B_x\right|=\frac{\mu_0 I R}{4 \pi\left(R^2+h^2\right)^{\frac{3}{2}}}(2 \pi R)=\frac{\mu_0 I R^2}{2\left(R^2+h^2\right)^{\frac{3}{2}}}
+$$
+\section{Electromagnetic Induction and Faraday's Law}
+\dfn{Faraday's Law \& Lenz's Law}{
+  \textbf{Faraday's:} A changing magnetic flux will induce an EMF $(\mathcal{E})$
+  $$
+  \begin{aligned}
+    \Phi_B & =\int \vec{B} \cdot d \vec{A} \;\; (T\cdot m^2 = Wb)\\
+    \mathcal{E} & =-N \dfrac{d \Phi_B}{dt} \\
+  \end{aligned}
+  $$
+Where $N$ is the number of loops.
+\double
+  \textbf{Lenz's:} The induced EMF will be create an induced current whose magnetic field will oppose the change in flux.
+  $$
+    \oint \vec{E} \cdot d \vec{l} =-\frac{d}{d t} \int \vec{B} \cdot d \vec{A}
+  $$
+}
+\dfn{Generators \& Transformers}{
+  $$
+\begin{aligned}
+&\mathcal{E}=N B A \omega \operatorname{Sin}(\omega t)\\
+&V_s=\left(N_s / N_p\right) V_p\\
+&I_s=\left(N_p / N_s\right) I_p
+\end{aligned}
+$$
+}
+\end{document}

@@ -540,6 +540,7 @@ B(2 \pi r)=\mu_o \int_0^R J(r) 2 \pi r d r \quad \text { if } \mathrm{r}>\mathrm
 $$
 \dfn{Biot-Savart's Law}{
   $$\vec{B}=\frac{\mu_o I}{4 \pi} \int \frac{\overrightarrow{d l} \times \hat{r}}{r^2}$$
+  $\hat{r}$: start from the point to the current\\
   Where $\vec{dl}$ is an infetisimal length of current.\\
   Unlike Ampere's Law:\\
   - Tells us the magnetic field at a specific point in space. \\
@@ -596,9 +597,13 @@ Where $N$ is the number of loops.
   $$
     \oint \vec{E} \cdot d \vec{l} =-\frac{d}{d t} \int \vec{B} \cdot d \vec{A} = |\frac{d\phi}{dt}|
   $$
-  Where $d\vec{l}$ is infetisimal length of $C$ or the $E$ field.
+  Where $d\vec{l}$ is the loop we define such that $d\vec{A}$ is the area vector (giving us flux) of the loop.
 }
 \dfn{Generators \& Transformers}{
+  Transformers allow an increase/decrease in AC voltage. \\
+  - Primary Coil: Input AC Voltage\\
+  - Secondary Coil: Output AC Voltage\\
+  - Magnetic Core: confine $\vec{B}$ (magnetic fields want to be in high permeability materials)\\
   $$
 \begin{aligned}
 &\mathcal{E}=N B A \omega \operatorname{Sin}(\omega t)\\
